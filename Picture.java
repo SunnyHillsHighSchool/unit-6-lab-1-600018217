@@ -367,23 +367,63 @@ public class Picture
   }
 
    ////////////////////// methods ///////////////////////////////////////
-  //precondition: amount is between 0 and 1
-public void decreaseBlue(double amount)
-   {
-   //create a pixel array
-   Pixel[]pixelArray=this.getPixels();
-   //create a pixel object
-   Pixel p  = null;
-   //loop through all of the pixels
-   for(int x=0;x<pixelArray.length;x++)
-   {
-   //get the current pixel
-   p =pixelArray[x];
+
+
+//Unit 6 Lab 1
+//By Johnathan Mitri
+/**
+    * Method to reduce the red, green, and blue values in an image
+    * @param redAmount - t
+    * @return true if success else false
+    */
+  public void reduceRGB(double redAmount, double greenAmount, double blueAmount)
+  {
+     
+    //create a pixel array
+    Pixel[] pixelArray=this.getPixels();
+    //create a pixel object
+    Pixel p = null;
+
+    //loop through all of the pixels
+    for (int x=0; x<pixelArray.length; x++)
+    {
+      //get the current pixel
+      p = pixelArray[x];
+
+      //decrease the red value
+      p.setRed((int)(p.getRed()*redAmount));
+
+      //decrease the green value
+      p.setGreen((int)(p.getGreen()*greenAmount));
+
+      //decrease the blue value
+      p.setBlue((int)(p.getBlue()*blueAmount));
+    }
+  }
+    
+
+//Unit 6 Lab 2
+//By Johnathan Mitri
+  public void negativePicture()
+  {
+  //create a pixel array
+  Pixel[] pixelArray = this.getPixels();
+  //create a pixel object
+  Pixel p = null;
+
+  //loop through all of the pixels
+  for (int x=0; x<pixelArray.length; x++)
+  {
+    //get the current pixel
+    p = pixelArray[x];
     //decrease the blue value
-    p.setBlue((int)(p.getBlue()*amount));
-   }
-   }
-   
+    p.setBlue(255-p.getBlue());
+    p.setGreen(255-p.getGreen());
+    p.setRed(255-p.getRed());
+  }
+}
+  
+
 /*
 The copper-puzzle.png image is a puzzle -- it shows something famous, however the image has been distored. The true image is in the blue and green values, however all the blue and green values have all be divided by 20, so the values are very small. The red values are all just random numbers, noise added on top to obscure things. Undo these distortions to reveal the true image.
 

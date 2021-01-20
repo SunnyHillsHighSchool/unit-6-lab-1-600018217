@@ -3,8 +3,11 @@ class Main
   /* Main method for testing */
   public static void main(String[] args) 
   {
+    //load the picture
     Picture pic = new Picture("beach.jpg");
-     pic.decreaseBlue(.60);
+    //change its rgb values
+    pic.reduceRGB(0.6, 0.9, 0.2);
+    //save the picture
     pic.write("output.jpg");
   }
 }
