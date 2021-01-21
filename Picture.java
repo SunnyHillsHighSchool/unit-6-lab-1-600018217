@@ -373,23 +373,16 @@ public class Picture
 //By Johnathan Mitri
 /**
     * Method to reduce the red, green, and blue values in an image
-    * @param redAmount - t
-    * @return true if success else false
+    * Precondition: each paramater must be between 0 and 1
     */
   public void reduceRGB(double redAmount, double greenAmount, double blueAmount)
   {
-     
     //create a pixel array
     Pixel[] pixelArray=this.getPixels();
-    //create a pixel object
-    Pixel p = null;
 
     //loop through all of the pixels
-    for (int x=0; x<pixelArray.length; x++)
+    for (Pixel p: pixelArray)
     {
-      //get the current pixel
-      p = pixelArray[x];
-
       //decrease the red value
       p.setRed((int)(p.getRed()*redAmount));
 
